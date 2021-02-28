@@ -40,3 +40,13 @@ s3 <- as.integer(s3)
 e2$Year <- s3
 
 write.csv(x=e2, file = "Zoop_fixeddate.csv")
+
+
+#remove columns
+
+e3 <- read.csv("Zoop_fixeddate.csv")
+
+names(e3)
+e3 <- e3[c(4, 12, 22, 23, 24, 25, 29, 30, 31)]
+
+write.csv(x=e3, file = "Zoop_allfixed.csv")

@@ -27,3 +27,16 @@ write.csv(x=e, file = "Zoop_fixed.csv")
 
 #extract year from Tow_Date
 
+e2 <- read.csv("Zoop_fixed.csv")
+str(e2)
+
+date <- e2$Tow_Date
+format(as.Date(date, format="%d/%m/%Y"),"%Y")
+
+s <- str_split_fixed(string = date, pattern = "/", n = 3)
+s3 <- s[,3]
+
+s3 <- as.integer(s3)
+e2$Year <- s3
+
+write.csv(x=e2, file = "Zoop_fixeddate.csv")
